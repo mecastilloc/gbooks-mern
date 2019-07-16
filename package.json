@@ -17,7 +17,9 @@
     "type": "git",
     "url": "https://github.com/mecastilloc/gbooks-mern"
   },
-  "keywords": ["MERN"],
+  "keywords": [
+    "MERN"
+  ],
   "author": "Manuel Castillo",
   "license": "ISC",
   "devDependencies": {
