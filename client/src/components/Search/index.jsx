@@ -49,7 +49,18 @@ class Search extends Component {
     this.search(this.state.query);
   };
 
-  
+  saveBook = bookId => {
+    // find book in this.state.booksList based on the bookId value
+    const bookSelected = this.state.booksList.find(book => book.bookId === bookId);
+    console.log(bookSelected);
+    API.saveBook(bookSelected)
+      .then(res => {
+        console.log(res.data);
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
   
 
   render() {
@@ -84,26 +95,28 @@ class Search extends Component {
         <div className="container-fluid">
         <div className="row">
             {/* begin book result section */}
-            <div className="col-12 col-sm-6 col-md-9">
+            <div className="col-12">
               {!this.state.booksList.length ? (
                 <h2 className="resultsTitle">No Results Yet</h2>
               ) : (
                 <React.Fragment>
-                  <h3>Search Results for: {this.state.query}</h3>
+                  <h2>Search Results for: {this.state.query}</h2>
                   <div className="row">
                     {this.state.booksList.map(book => {
                       return (
-                        <div className="col-12 col-md-6" key={book.bookId}>
+                        <div className="col-12 col-md-4" key={book.bookId}>
                           <div className="card">
                             <img src={book.image} alt={book.title} className="card-img-top" />
                             <div className="card-body">
                               <h5 className="card-title">{book.title}</h5>
                               <p className="card-text">Released: {book.date}</p>
-                              {book.authors ? <p className="card-text">By: {book.authors.join(', ')}</p> : ''}
+                              {book.authors ? (<p className="card-text">By: {book.authors.join(', ')}</p>) : ''}
                               <p className="card-text">
                                 <strong>Description</strong>: {book.description}{' '}
                               </p>
-
+                              <button onClick={() => this.saveBook(book.bookId)} className="btn btn btn-outline-success btn-small">
+                                Save Book.
+                              </button>
                               <a
                                 href={book.link}
                                 rel="noopener noreferrer"
@@ -111,7 +124,7 @@ class Search extends Component {
                                 className="btn btn-outline-warning btn-small">
                                 More Details
                                 </a>
-                              
+                                
                             </div>
                           </div>
                         </div>
