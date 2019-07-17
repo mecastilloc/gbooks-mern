@@ -1,18 +1,20 @@
-import axios from 'axios';
+import axios from "axios";
 
 export default {
 
-  searchForBooks(bookQuery) {
-    return axios.get('https://www.googleapis.com/books/v1/volumes', { params: {
-      q: bookQuery    
+  searchBooks(searchTerm) {
+  return axios.get("https://www.googleapis.com/books/v1/volumes", { params: {
+      q: searchTerm,
+      maxResults: 40,
+      intitle: searchTerm  
     }
   })
   },
   saveBook(bookData) {
-    return axios.post('/api/books', bookData);
+    return axios.post("/api/books", bookData);
   },
   getSavedBooks() {
-    return axios.get('/api/books');
+    return axios.get("/api/books");
   },
     
   deleteBook(bookId) {

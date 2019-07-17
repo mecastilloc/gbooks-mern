@@ -1,7 +1,22 @@
-.active{
+
+
+a:active, .active{
     color: orange;
 }
 
 a{
     color:white;
 }
+a:hover { 
+     transform: scale(1.3);
+     color: white;
+  }
+
+  a[aria-current="page"]:hover { 
+    transform: scale(1);
+    color: orange;
+    cursor: default;
+ }
+
+
+  

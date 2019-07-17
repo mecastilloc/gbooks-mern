@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import API from '../../utils/API';
-import './index.css';
+import React, {Component} from "react";
+import API from "../../utils/API";
+import "./index.css";
 
 class Search extends Component {
   state = {
@@ -8,8 +8,8 @@ class Search extends Component {
     booksList: []
   };
 
-  search = bookQuery => {
-    API.searchForBooks(bookQuery)
+  search = searchTerm => {
+    API.searchBooks(searchTerm)
       .then(res => {
         //console.log(res.data);
         // take res.data.items array and create new array with less information
@@ -110,10 +110,11 @@ class Search extends Component {
                             <img src={book.image} alt={book.title} className="card-img-top" />
                             <div className="card-body">
                               <h5 className="card-title">{book.title}</h5>
-                              <p className="card-text ">Released: {book.date}</p>
-                              {book.authors ? (<p className="card-text">By: {book.authors.join(', ')}</p>) : ''}
+                             
+                              {book.date ? (<p className="card-text">Released:{book.date}</p>) : (<p>Release Date Not Available</p>)}
+                              {book.authors ? (<p className="card-text">By: {book.authors.join(", ")}</p>) : (<p>Authors Not Available</p>)}
                               <p className="card-text block-with-text">
-                                <strong>Description</strong>: {book.description}{' '}
+                                <strong>Description</strong>: {book.description}{" "}
                               </p>
                               <div className="row justify-content-center cardButton">
 

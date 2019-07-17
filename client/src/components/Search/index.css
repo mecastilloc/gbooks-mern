@@ -74,7 +74,7 @@ img{
 .block-with-text {
     /* hide text if it more than N lines  */
     overflow: hidden;
-    /* for set '...' in absolute position */
+    /* for set "..." in absolute position */
     position: relative; 
     /* use this value to count block height */
     line-height: 1.4em;
@@ -89,7 +89,7 @@ img{
   }
   .block-with-text:before {
     /* points in the end */
-    content: '...';
+    content: "...";
     /* absolute position */
     position: absolute;
     /* set position to right bottom corner of block */
@@ -98,7 +98,7 @@ img{
   }
   .block-with-text:after {
     /* points in the end */
-    content: '';
+    content: "";
     /* absolute position */
     position: absolute;
     /* set position to right bottom corner of text */

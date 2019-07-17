@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import API from '../../utils/API';
+import React, { Component } from "react";
+import API from "../../utils/API";
 
 class Saved extends Component {
   state = {
@@ -45,10 +45,10 @@ class Saved extends Component {
                             <img src={book.image} alt={book.title} className="card-img-top" />
                             <div className="card-body">
                               <h5 className="card-title">{book.title}</h5>
-                              <p className="card-text">Release Info: {book.date}</p>
-                              {book.authors.length ? (<p className="card-text">By: {book.authors.join(', ')}</p>) : "No Authors Available"}
+                              {book.date ? (<p className="card-text">Released:{book.date}</p>) : (<p>Release Date Not Available</p>)}
+                              {book.authors.length ? (<p className="card-text">By: {book.authors.join(", ")}</p>) : (<p>Authors Not Available</p>)}
                               <p className="card-text block-with-text">
-                                <strong>Description</strong>: {book.description}{' '}
+                                <strong>Description</strong>: {book.description}{" "}
                               </p>
                               <div className="row justify-content-center cardButton">
 
