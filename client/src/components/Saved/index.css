@@ -1,3 +1,148 @@
 h2{
     color: orange;
 }
+
+.resultsWrap{
+    background-color: black;
+    color: orange;
+    text-align: center;
+    padding: 6px;
+  
+}
+
+
+.allCard{
+    padding: 5px;
+}
+.card{
+    background-color: black;
+    color: orange;
+    border : solid 1px;
+    border-color: white;
+    text-align: left;
+    margin: auto;
+    max-width: 275px;
+}
+
+.cardButton{
+    margin: 3px;
+}
+
+img{
+ 
+    height: 300px;
+}
+
+
+
+/* CSS to limit number of lines of text */
+.block-with-text {
+    /* hide text if it more than N lines  */
+    overflow: hidden;
+    /* for set '...' in absolute position */
+    position: relative; 
+    /* use this value to count block height */
+    line-height: 1.4em;
+    /* max-height = line-height (1.2) * lines max number (7) */
+    max-height: 9.8em; 
+    /* fix problem when last visible word doesn't adjoin right side  */
+    text-align: left;
+    
+    /* */
+    margin-right: -1em;
+    padding-right: 1em;
+  }
+  .block-with-text:before {
+    /* points in the end */
+    content: '...';
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of block */
+    right: 0;
+    bottom: 0;
+  }
+  .block-with-text:after {
+    /* points in the end */
+    content: '';
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of text */
+    right: 0;
+    width: 1em;
+    /* set width and height */
+    height: 1em;
+    margin-top: 0.2em;
+    background: black;
+  }
+
+  @media only screen and (max-width: 1200px) {
+    img{
+    
+        height: 285x;
+    }
+
+    .card{
+        width: 26px;
+        margin: auto;
+    }
+}
+
+  @media only screen and (max-width: 870px) {
+    .card{
+        width: 275px;
+        margin: auto;
+    }
+
+}
+
+@media only screen and (max-width: 840px) {
+    
+    img{
+    
+        height: 290px;
+    }
+
+    .card{
+        width: 265px;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 796px) {
+    
+    img{
+    
+        height: 285x;
+    }
+
+    .card{
+        width: 260px;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 783px) {
+    
+    img{
+    
+        height: 270x;
+    }
+
+    .card{
+        width: 240px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 767px) {
+    
+    img{
+    
+        height: 300x;
+    }
+
+    .card{
+        width: 274px;
+        margin: auto;
+    }
+
+}

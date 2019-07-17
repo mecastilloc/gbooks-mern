@@ -11,7 +11,7 @@ class Search extends Component {
   search = bookQuery => {
     API.searchForBooks(bookQuery)
       .then(res => {
-        console.log(res.data);
+        //console.log(res.data);
         // take res.data.items array and create new array with less information
         const booksList = res.data.items.map(book => {
           return {
@@ -25,7 +25,7 @@ class Search extends Component {
           };
         });
         // set state to have new book list
-        this.setState({ booksList });
+        this.setState({ booksList, query: "" });
       })
       .catch(err => {
         console.log(err);
@@ -52,10 +52,13 @@ class Search extends Component {
   saveBook = bookId => {
     // find book in this.state.booksList based on the bookId value
     const bookSelected = this.state.booksList.find(book => book.bookId === bookId);
-    console.log(bookSelected);
+    //console.log(bookSelected);
     API.saveBook(bookSelected)
-      .then(res => {
-        console.log(res.data);
+      // .then(res => {
+      //   console.log(res.data);
+      // })
+      .then(()=>{
+        console.log("Book Saved");
       })
       .catch(err => {
         console.log(err);
@@ -63,14 +66,14 @@ class Search extends Component {
   };
   
 
+
   render() {
     return (
       <React.Fragment>
-        {/* make jumbotron */}
         <div className="searchwrap">
-        <div className="row">
+        <div className="row justify-content-center">
             {/* form section */}
-            <div className="col-12 col-sm-6 col-md-3">
+            <div className="col-5 searcForm">
               <h3>Search For A Book</h3>
               <form onSubmit={this.handleFormSubmit}>
                 <input
@@ -90,10 +93,8 @@ class Search extends Component {
         </div>
         </div>
 
-        {/* create row with two columns */}
-        <br/>
-        <div className="container-fluid">
-        <div className="row">
+        <div className="container-fluid resultsWrap">
+        <div className="row justify-content-center">
             {/* begin book result section */}
             <div className="col-12">
               {!this.state.booksList.length ? (
@@ -104,27 +105,29 @@ class Search extends Component {
                   <div className="row">
                     {this.state.booksList.map(book => {
                       return (
-                        <div className="col-12 col-md-4" key={book.bookId}>
+                        <div className="col-lg-3  col-md-4 col-sm-6 allCard" key={book.bookId}>
                           <div className="card">
                             <img src={book.image} alt={book.title} className="card-img-top" />
                             <div className="card-body">
                               <h5 className="card-title">{book.title}</h5>
-                              <p className="card-text">Released: {book.date}</p>
+                              <p className="card-text ">Released: {book.date}</p>
                               {book.authors ? (<p className="card-text">By: {book.authors.join(', ')}</p>) : ''}
-                              <p className="card-text">
+                              <p className="card-text block-with-text">
                                 <strong>Description</strong>: {book.description}{' '}
                               </p>
-                              <button onClick={() => this.saveBook(book.bookId)} className="btn btn btn-outline-success btn-small">
-                                Save Book.
+                              <div className="row justify-content-center cardButton">
+
+                              <button onClick={() => this.saveBook(book.bookId)} className="cardButton btn btn btn-outline-success btn-small">
+                                Save Book
                               </button>
                               <a
                                 href={book.link}
                                 rel="noopener noreferrer"
                                 target="_blank"
-                                className="btn btn-outline-warning btn-small">
-                                More Details
+                                className="cardButton btn btn-outline-warning btn-small">
+                                + Details
                                 </a>
-                                
+                                </div>
                             </div>
                           </div>
                         </div>

@@ -1,3 +1,171 @@
 h2{
     color: orange;
 }
+
+.searchwrap, .resultsWrap{
+    background-color: black;
+    color: orange;
+    text-align: center;
+    padding: 6px;
+  
+}
+
+.searcForm{
+    border : solid 1px;
+    border-color: white;
+    padding: 10px;
+    border-radius: 5px;
+
+}
+
+input[type=input] {
+    background-color: black;
+    border: 1px solid white;
+    border-radius: 5px;
+    color: orange;
+    -webkit-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+    width: 100%;
+}
+
+input[type=input]:focus {
+    background-color: black;
+    color: orange;
+    border: 1px solid greenyellow;
+    width: 100%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover, 
+input:-webkit-autofill:focus{
+    -webkit-text-fill-color: orange;
+    transition: background-color 5000s ease-in-out 0s;
+    
+    border: 1px solid greenyellow;
+    width: 100%;
+
+}
+.allCard{
+    padding: 5px;
+}
+.card{
+    background-color: black;
+    color: orange;
+    border : solid 1px;
+    border-color: white;
+    text-align: left;
+    margin-top: 5px;
+    max-width: 275px;
+    margin: auto;
+}
+
+.cardButton{
+    margin: 3px;
+}
+
+img{
+    
+    height: 300px;
+}
+
+
+
+/* CSS to limit number of lines of text */
+.block-with-text {
+    /* hide text if it more than N lines  */
+    overflow: hidden;
+    /* for set '...' in absolute position */
+    position: relative; 
+    /* use this value to count block height */
+    line-height: 1.4em;
+    /* max-height = line-height (1.2) * lines max number (7) */
+    max-height: 9.8em; 
+    /* fix problem when last visible word doesn't adjoin right side  */
+    text-align: left;
+    
+    /* */
+    margin-right: -1em;
+    padding-right: 1em;
+  }
+  .block-with-text:before {
+    /* points in the end */
+    content: '...';
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of block */
+    right: 0;
+    bottom: 0;
+  }
+  .block-with-text:after {
+    /* points in the end */
+    content: '';
+    /* absolute position */
+    position: absolute;
+    /* set position to right bottom corner of text */
+    right: 0;
+    width: 1em;
+    /* set width and height */
+    height: 1em;
+    margin-top: 0.2em;
+    background: black;
+  }
+
+  @media only screen and (max-width: 870px) {
+    .card{
+        width: 275px;
+        margin: auto;
+    }
+
+}
+
+@media only screen and (max-width: 840px) {
+    
+    img{
+    
+        height: 290px;
+    }
+
+    .card{
+        width: 265px;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 796px) {
+    
+    img{
+    
+        height: 285x;
+    }
+
+    .card{
+        width: 260px;
+        margin: auto;
+    }
+}
+
+@media only screen and (max-width: 783px) {
+    
+    img{
+    
+        height: 280x;
+    }
+
+    .card{
+        width: 250px;
+        margin: auto;
+    }
+}
+@media only screen and (max-width: 767px) {
+    
+    img{
+    
+        height: 300x;
+    }
+
+    .card{
+        width: 274px;
+        margin: auto;
+    }
+
+}
